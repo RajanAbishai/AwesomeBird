@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Border
   - Ground
+  - Dog
   layers:
   - Default
   - TransparentFX
@@ -48,6 +49,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 4179995939
+    locked: 0
+  - name: Dog
+    uniqueID: 288553269
     locked: 0
   - name: Player
     uniqueID: 1945169335

@@ -97,8 +97,16 @@ public class BirdScript : MonoBehaviour {
 
         if (target.gameObject.tag == TagManager.GROUND_TAG)
         {
-            first_Jump = true;
-            second_Jump = true;
+            /* this is done to prevent the bird from jumping to the next platform without even properly landing.. 
+             * like infinite jumps without landing
+              
+             *This is because when we jump, we are adding force to the y velocity.. and it makes the y velocity go well above 1
+             * However, when we land, the velocity  starts to decrease and go equal to or below 1*/
+            if (myBody.velocity.y <= 1f) 
+            {
+                first_Jump = true;
+                second_Jump = true;
+            }
         }
 
     }
