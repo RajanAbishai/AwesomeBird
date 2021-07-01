@@ -9,5 +9,6 @@ public class TagManager : MonoBehaviour {
     public static string GROUND_TAG = "Ground";
     public static string PLAYER_TAG= "Player";
     public static string DOG_TAG= "Dog";
+    public static string WARNING_TAG = "Warning";
 	
 }
