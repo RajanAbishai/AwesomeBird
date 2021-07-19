@@ -10,6 +10,8 @@ public class SpawnerScript : MonoBehaviour {
     private float ground_Y_Distance = 3.3f;
     private float current_Y_Position = 0f;
 
+    public GameObject[] collectables;
+
     /*This is because when we are spawning a new ground, the new ground is spawned at a position of current_Y_Position + ground_Y_Distance
     and the new position is then set as the new current_Y_Position and it repeats the process to spawn new grounds*/
 
@@ -81,8 +83,22 @@ public class SpawnerScript : MonoBehaviour {
 
         }
 
-        
 
+        SpawnCollectables(); //and based on the random range, it will decide to spawn or not and then, it will either spawn a blue or a yellow collectable
+
+    }
+
+    void SpawnCollectables()
+    {
+
+        if (Random.Range(0, 2) == 1) //returns either 0 or 1
+        {
+            GameObject collectableItem = Instantiate(collectables[Random.Range(0,collectables.Length)]); //Length is 2 but it does not include element[2]. It includes element[0] and element[1]
+
+            collectableItem.transform.position = new Vector2(Random.Range(-xPos,xPos), current_Y_Position+0.5f  ); //curent y position is used to position the grounds
+        }
+
+            
 
     }
 

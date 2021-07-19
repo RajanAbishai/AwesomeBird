@@ -112,4 +112,20 @@ public class BirdScript : MonoBehaviour {
     }
 
 
+    private void OnTriggerEnter2D(Collider2D target)
+    {
+        if (target.tag == TagManager.SCORE_TAG) //to check collisions with the empty game object (a child of the ground object)
+        {
+            GameplayController.instance.DisplayScore(1, 0); //using the object to access the function in the class to increase score by 1, increase diamond score by 0
+            target.gameObject.SetActive(false);
+        }
+
+        if (target.tag == TagManager.DIAMONG_TAG) //we have collided with the diamond and can pick it up
+        {
+            GameplayController.instance.DisplayScore(0, 1); //increase score by 0, increase diamond score by 1
+            target.gameObject.SetActive(false);
+        }
+        
+    }
+
 }

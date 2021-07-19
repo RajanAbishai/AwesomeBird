@@ -10,5 +10,8 @@ public class TagManager : MonoBehaviour {
     public static string PLAYER_TAG= "Player";
     public static string DOG_TAG= "Dog";
     public static string WARNING_TAG = "Warning";
+    public static string DIAMONG_TAG = "Diamond";
+    public static string SCORE_TAG = "Score";
+
 	
 }
