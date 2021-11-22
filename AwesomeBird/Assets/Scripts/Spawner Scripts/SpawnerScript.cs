@@ -17,7 +17,7 @@ public class SpawnerScript : MonoBehaviour {
 
 
     public GameObject[] dogs;
-    private float xPos = 2.55f;
+    public float xPos = 2.55f;
 
 
 
@@ -100,6 +100,18 @@ public class SpawnerScript : MonoBehaviour {
 
             
 
+    }
+
+    public void CancelWarningSpawner()
+    {
+        GameObject[] warnings = GameObject.FindGameObjectsWithTag(TagManager.WARNING_TAG); // all of them would be found
+        for(int i=0; i < warnings.Length; i++)
+        {
+            warnings[i].GetComponent<WarningSpawner>().CancelInvoke(); 
+            /*All the game objects that have the warning tag,have their invokes cancelled. We could say warning spawner instead of 
+             * monobehaviour because the warning spawner inherits from monobehaviour. 
+             * It cancels all invoke calls on this monobehaviour */
+        }
     }
 
 
