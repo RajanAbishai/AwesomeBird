@@ -36,21 +36,19 @@ public class BirdScript : MonoBehaviour {
 
 	void Update () {
 
+        Move();
 
-        if (GameplayController.instance.playGame) {
-
-            Move();
-
-            //returns true during the frame the user pressed the given mouse button
-            if (Input.GetMouseButtonDown(0)) //0 is for the left mouse button click 
-            {
-
-                JumpFunc();
-
-            }
-
+        //returns true during the frame the user pressed the given mouse button
+        if (Input.GetMouseButtonDown(0)) //0 is for the left mouse button click 
+        {
+            
+            JumpFunc();
 
         }
+
+        
+
+        
 
     }
 
@@ -109,14 +107,6 @@ public class BirdScript : MonoBehaviour {
                 first_Jump = true;
                 second_Jump = true;
             }
-        }
-
-        if (target.gameObject.tag == TagManager.DOG_TAG) {
-
-            GameplayController.instance.GameOver();
-            myBody.velocity = new Vector2(0f, 0f);
-            anim.Play(TagManager.DEAD_ANIMATION);
-            SpawnerScript.instance.CancelWarningSpawner();
         }
 
     }

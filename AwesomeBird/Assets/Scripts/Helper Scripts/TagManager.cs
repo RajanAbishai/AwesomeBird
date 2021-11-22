@@ -12,12 +12,6 @@ public class TagManager : MonoBehaviour {
     public static string WARNING_TAG = "Warning";
     public static string DIAMONG_TAG = "Diamond";
     public static string SCORE_TAG = "Score";
-
-    public static string FADE_IN_ANIMATION = "FadeIn";
-    public static string DEAD_ANIMATION = "dead";
-    public static string GAMEPLAY_SCENE="GamePlay";
-
-    public static string GAME_DATA = "/GameData.dat";
-
+    public static string GAME_DATA = "Gamedata";
 	
 }

@@ -11,6 +11,9 @@ public class GroundScript : MonoBehaviour {
         DeactivateGround();
 	}
 
+
+   
+
     void DeactivateGround()
     {
         

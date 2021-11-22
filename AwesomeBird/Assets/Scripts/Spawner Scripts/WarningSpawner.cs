@@ -52,7 +52,6 @@ public class WarningSpawner : MonoBehaviour {
 
     }
 
-    
 
     void SpawnObstacle()
     {
@@ -61,7 +60,7 @@ public class WarningSpawner : MonoBehaviour {
 
         if (transform.position.x > 0) //we are on the right side
         {
-            obstacle.transform.position = new Vector3(temp.x + 2f, temp.y, 0);
+            obstacle.transform.position = new Vector3(temp.x + 5f, temp.y, 0);
 
 
 
@@ -70,7 +69,7 @@ public class WarningSpawner : MonoBehaviour {
         }
         else //we are on the left side
         {
-            obstacle.transform.position = new Vector3(temp.x - 2f, temp.y, 0);
+            obstacle.transform.position = new Vector3(temp.x - 5f, temp.y, 0);
 
             obstacle.GetComponent<SpriteRenderer>().flipX = true;
 
