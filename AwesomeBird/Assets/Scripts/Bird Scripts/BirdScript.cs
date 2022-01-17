@@ -36,19 +36,21 @@ public class BirdScript : MonoBehaviour {
 
 	void Update () {
 
-        Move();
-
-        //returns true during the frame the user pressed the given mouse button
-        if (Input.GetMouseButtonDown(0)) //0 is for the left mouse button click 
+        //Only if we are playing the game, the bird shall move.
+        if (GameplayController.instance.playGame)
         {
-            
-            JumpFunc();
+            Move();
 
-        }
+            //returns true during the frame the user pressed the given mouse button
+            if (Input.GetMouseButtonDown(0)) //0 is for the left mouse button click 
+            {
 
-        
+                JumpFunc();
 
-        
+            }
+
+
+        }        
 
     }
 
@@ -75,6 +77,8 @@ public class BirdScript : MonoBehaviour {
             first_Jump = false; //disabling it so that we don't have infinite jumps
             myBody.velocity = new Vector2(myBody.velocity.x,jump_Force);
             anim.SetTrigger(TagManager.FLY_TRIGGER); // set the fly trigger which moves it from the idle state to the fly state
+
+            SoundManager.instance.PlayJumpSound();
         }
 
         else if (second_Jump)
@@ -82,6 +86,8 @@ public class BirdScript : MonoBehaviour {
             second_Jump = false; //disabling it so that we don't have infinite jumps
             myBody.velocity = new Vector2(myBody.velocity.x, second_Jump_Force);
             anim.SetTrigger(TagManager.FLY_TRIGGER);
+
+            SoundManager.instance.PlayJumpSound();
 
         }
 
@@ -109,6 +115,15 @@ public class BirdScript : MonoBehaviour {
             }
         }
 
+        if (target.gameObject.tag == TagManager.DOG_TAG) //if we collide with the dog, we call gameover
+        {
+            GameplayController.instance.GameOver();
+            myBody.velocity = new Vector2(0f, 0f);
+            anim.Play(TagManager.DEAD_ANIMATION);
+
+            SpawnerScript.instance.CancelWarningSpawner();
+        }
+
     }
 
 
@@ -124,6 +139,8 @@ public class BirdScript : MonoBehaviour {
         {
             GameplayController.instance.DisplayScore(0, 1); //increase score by 0, increase diamond score by 1
             target.gameObject.SetActive(false);
+
+            SoundManager.instance.PlayDiamondSound();
         }
         
     }

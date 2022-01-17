@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour {
 			//print("Initializing game data for the first time");
 			bestScore = 0;
 			diamondScore = 0;
+			
 			selected_Index = 0;
 			birds = new bool[7];
 

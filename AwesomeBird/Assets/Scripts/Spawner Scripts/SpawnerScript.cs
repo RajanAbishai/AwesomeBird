@@ -102,5 +102,18 @@ public class SpawnerScript : MonoBehaviour {
 
     }
 
+    public void CancelWarningSpawner()
+    {
+        GameObject[] warnings = GameObject.FindGameObjectsWithTag(TagManager.WARNING_TAG);
+
+        for (int i= 0; i < warnings.Length; i++){
+
+            warnings[i].GetComponent<WarningSpawner>().CancelInvoke();
+
+            // can also type Monobehavior instead of WarningSpawner as both inherit from Monobehavior
+            //Cancel invoke cancels all invoke calls on the Monobehaviour
+        }
+    }
+
 
 }
